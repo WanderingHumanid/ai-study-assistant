@@ -16,19 +16,46 @@
     background-color: #1c1f23;
     margin-right: auto;
 }
-pre {
-    background-color: #000;
-    padding: 1rem;
-    border-radius: 0.5rem;
-}
-code {
-    color: #f8f9fa;
-}
+
 .typing-indicator {
     display: none;
     color: #6c757d;
     font-style: italic;
+    font-size: 13px;
 }
 .send-button {
-    border-color: #d3dae1;
+    border-color: rgb(179, 179, 179);
+    background-color: rgb(93, 119, 159);
+}
+
+.dropdown-menu {
+    background-color: rgba(36, 36, 44, 0.767);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(169, 169, 209, 0.767);
+}
+
+#user-input {
+    background-color: rgb(71, 87, 95);
+    border: white;
+}
+
+.card-header {
+    background-color: rgb(71, 87, 95);
+}
+
+.navbar {
+    background-color: #1c1f23;
+}
+
+.navbar-toggler {
+    background-color: #343a40;
+    border: 1px solid #f8f9fa5b;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+#user-input::placeholder {
+    color: rgba(255, 255, 255, 0.763);
 }

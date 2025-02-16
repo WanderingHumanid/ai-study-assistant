@@ -4,6 +4,7 @@ This is a Flask-based web application that provides an AI-powered academic assis
 
 ## Features
 - **AI-powered chatbot** for academic support
+- **Real time streaming of AI outputs**
 - **Supports coding-related queries**
 - **Real-time responses using server-sent events (SSE)**
 - **Bootstrap dark mode theme** for modern UI design
@@ -34,22 +35,24 @@ Ensure you have the following installed:
    pip install flask requests
    ```
 3. **Download Ollama and the Mistral LLM model:**
-     - Download Ollama from [their official site](https://ollama.com/). Then type the following commands in the windows terminal one-by-one:
+     - Download Ollama from [their official site](https://ollama.com/). Then type the following command in the windows terminal:
 
    ```sh
    ollama run mistral
    ```
-
+   If the model has been successfully downloaded, you will be able to converse with Mistral in the terminal itself. If this is the case, open a new terminal and enter the following command:
    ```sh
    ollama serve
    ```
-
+   **Do not** close the terminal after typing the above command.
 4. **Run the Flask application:**
+   - Keep the terminal open after typing the above command. Now, go to your cloned repository and type the following command in the terminal:
    ```sh
    python app.py
    ```
 5. **Access the website** by opening `http://127.0.0.1:5000/` in your browser.
 
+![Website Preview ](static/images/website-preview.png)
 ## File Structure
 ```
 ├── static/

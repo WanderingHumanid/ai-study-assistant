@@ -94,4 +94,4 @@ At it's current state, this project is far from a finished project. There are ma
     - We have plans to integrate a forum-site like environment in which students would be able to post their queries in an open-space, and other students will be able to answer those queries. 
     - We also have plans for a game-like system in this environment, which will encourage the users to interact more frequently with other students.
 
-**Developed by [Team_Name] of Christ College of Engineering, Irinjalakuda.**
+**Developed by Team Techverse of S2 CSE-C from Christ College of Engineering, Irinjalakuda.**

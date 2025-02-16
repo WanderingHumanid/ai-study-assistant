@@ -1,0 +1,23 @@
+#chat-box {
+    height: 70vh;
+    overflow-y: auto;
+}
+
+.card-header {
+    background-color: rgb(45, 45, 45);
+}
+
+.btn {
+    border-color: rgb(163, 166, 205);
+}
+
+.card-structure {
+    border-width: 2px;
+}
+
+.typing-indicator {
+    display: yes;
+    color: rgb(161, 163, 183);
+    font-style: italic;
+    font-size: 13px;
+}

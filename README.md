@@ -4,7 +4,6 @@ This is a Flask-based web application that provides an AI-powered academic assis
 
 ## Features
 - **AI-powered chatbot** for academic support
-- **Real time streaming of AI outputs**
 - **Supports coding-related queries**
 - **Real-time responses using server-sent events (SSE)**
 - **Bootstrap dark mode theme** for modern UI design

@@ -26,8 +26,8 @@ Ensure you have the following installed:
 ### Steps to Run Locally
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/WanderingHumanid/ai-study-assistant.git
+   cd ai-study-assistant
    ```
 2. **Install dependencies:**
    ```sh
@@ -39,13 +39,17 @@ Ensure you have the following installed:
    ```sh
    ollama run mistral
    ```
+
    If the model has been successfully downloaded, you will be able to converse with Mistral in the terminal itself. If this is the case, open a new terminal and enter the following command:
+
    ```sh
    ollama serve
    ```
    **Do not** close the terminal after typing the above command.
+
 4. **Run the Flask application:**
    - Keep the terminal open after typing the above command. Now, go to your cloned repository and type the following command in the terminal:
+   
    ```sh
    python app.py
    ```

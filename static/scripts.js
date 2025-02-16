@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         chatBox.innerHTML += `<div class='message-bubble user-message'><strong>You:</strong><br>${userInput}</div>`;
         currentBotMessage = document.createElement("div");
         currentBotMessage.className = "message-bubble bot-message";
-        currentBotMessage.innerHTML = "<strong>Mistral:</strong><br><div class='bot-response-content'></div>";
+        currentBotMessage.innerHTML = "<strong>[AI Assistant]:</strong><br><div class='bot-response-content'></div>";
         chatBox.appendChild(currentBotMessage);
         chatBox.scrollTop = chatBox.scrollHeight;
         typingIndicator.style.display = "block";

@@ -13,7 +13,7 @@ This is a Flask-based web application that provides an AI-powered academic assis
 ## Technologies Used
 - **Backend:** Flask (Python)
 - **Frontend:** HTML, CSS (Bootstrap), JavaScript
-- **AI Model:** Mistral (via Ollama API)
+- **AI Model:** Mistral/Llama3.2 (via Ollama API)
 
 ## Installation & Setup
 ### Prerequisites
@@ -37,10 +37,16 @@ Ensure you have the following installed:
      - Download Ollama from [their official site](https://ollama.com/). Then type the following command in the windows terminal:
 
    ```sh
-   ollama run mistral
-   ```
+   // If you want to run the mistral model
 
-   If the model has been successfully downloaded, you will be able to converse with Mistral in the terminal itself. If this is the case, open a new terminal and enter the following command:
+   ollama run mistral
+
+   // If you want to run the llama3.2 model
+
+   ollama run llama3.2
+   ```
+   - Note: Llama3.2 is lighter than Mistral with 3B parameters instead of 7B, however the outputs of Mistral will be better than that of Llama. Download the one which suits your device and needs.
+   - If the model has been successfully downloaded, you will be able to converse with Mistral in the terminal itself. If this is the case, open a new terminal and enter the following command:
 
    ```sh
    ollama serve

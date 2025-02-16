@@ -18,7 +18,7 @@ def generate():
 
     def generate_events():
         payload = {
-            "model": "mistral",
+            "model": "llama3.2", # Can use `mistral` instead for more accurate results, but it's heavier on the GPU.
             "system": "You are an academic assistant. Only answer questions related to academics educational subjects. If a question is off-topic, politely refuse to answer and guide them on what type of questions they're supposed to ask.",
             "prompt": prompt,
             "stream": True

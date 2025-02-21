@@ -16,7 +16,7 @@ def generate(request):
     def generate_events():
         payload = {
             "model": "llama3.2", # Use `mistral` if you have a more powerful GPU.
-            "system": "You are an academic assistant. Answer only educational questions.",
+            "system": "You are an academic assistant. You must only answer educational questions. If the user prompts for a question not related to academics, kindly request them to ask for relevant topics alone.",
             "prompt": prompt,
             "stream": True
         }

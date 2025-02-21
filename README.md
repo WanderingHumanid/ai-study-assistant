@@ -1,26 +1,29 @@
 # AI-Assisted Study Tool
 
-This is a Flask-based web application that provides an AI-powered academic assistant. The assistant helps with various academic topics, including math, science, history, literature, and coding. The application uses the **Mistral** language model and integrates with an AI backend via the **Ollama API**.
+This is a Django-based web application designed to serve as an AI-powered academic assistant. The platform aims to provide students with an interactive learning environment that integrates AI-driven tutoring, a collaborative student community, and gamification features to encourage participation. The assistant is powered by **Mistral/Llama3.2** through the **Ollama API**, ensuring real-time, academic-focused responses.
 
 ## Features
-- **AI-powered chatbot** for academic support
-- **Supports coding-related queries**
+- **AI-powered chatbot** for academic support across various subjects
+- **User authentication system** for personalized experiences and saved progress
+- **Student community forum** for discussions, Q&A, and resource sharing
 - **Real-time responses using server-sent events (SSE)**
-- **Bootstrap dark mode theme** for modern UI design
-- **User-friendly interface** with a navbar, input field, and chat display
-- **Strict filtering of non-academic prompts**
+- **Gamification features** to incentivize participation (planned)
+- **Modern UI with React integration** (planned)
+- **Strict academic filtering** to ensure relevance
 
 ## Technologies Used
-- **Backend:** Flask (Python)
-- **Frontend:** HTML, CSS (Bootstrap), JavaScript
+- **Backend:** Django (Python)
+- **Frontend:** HTML, CSS (Bootstrap), JavaScript (Planned React Integration)
+- **Database:** PostgreSQL / SQLite (for user authentication & chat history)
 - **AI Model:** Mistral/Llama3.2 (via Ollama API)
 
 ## Installation & Setup
 ### Prerequisites
 Ensure you have the following installed:
 - Python (3.8+ recommended)
-- Flask
+- Django
 - `requests` library for API calls
+- PostgreSQL (optional; can use SQLite for development)
 - Ollama (running locally on `localhost:11434`)
 
 ### Steps to Run Locally
@@ -29,39 +32,37 @@ Ensure you have the following installed:
    git clone https://github.com/WanderingHumanid/ai-study-assistant.git
    cd ai-study-assistant
    ```
-2. **Install dependencies:**
+2. **Set up a virtual environment:**
    ```sh
-   pip install flask requests
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
    ```
-3. **Download Ollama and the Mistral LLM model:**
-     - Download Ollama from [their official site](https://ollama.com/). Then type the following command in the windows terminal:
+3. **Install dependencies:**
 
+4. **Download and set up Ollama:**
+   - Install Ollama from [their official site](https://ollama.com/).
+   - Download the required AI model:
+     ```sh
+     ollama run llama3.2  # or `ollama run mistral` if you have a more powerful GPU
+     ```
+   - Serve the model in a separate terminal:
+     ```sh
+     ollama serve
+     ```
+5. **Apply database migrations:**
    ```sh
-   // If you want to run the mistral model
-
-   ollama run mistral
-
-   // If you want to run the llama3.2 model
-
-   ollama run llama3.2
+   python manage.py migrate
    ```
-   - Note: Llama3.2 is lighter than Mistral with 3B parameters instead of 7B, however the outputs of Mistral will be better than that of Llama. Download the one which suits your device and needs.
-   - If the model has been successfully downloaded, you will be able to converse with Mistral in the terminal itself. If this is the case, open a new terminal and enter the following command:
-
+6. **Create a superuser (for admin access):**
    ```sh
-   ollama serve
+   python manage.py createsuperuser
    ```
-   **Do not** close the terminal after typing the above command.
-
-4. **Run the Flask application:**
-   - Keep the terminal open after typing the above command. Now, go to your cloned repository and type the following command in the terminal:
-   
+7. **Run the Django server:**
    ```sh
-   python app.py
+   python manage.py runserver
    ```
-5. **Access the website** by opening `http://127.0.0.1:5000/` in your browser.
+8. **Access the website** by opening `http://127.0.0.1:8000/` in your browser.
 
-![Website Preview ](static/images/website-preview.png)
 ## File Structure
 ```
 ├── static/
@@ -69,12 +70,17 @@ Ensure you have the following installed:
 │   ├── scripts.js  # Client-side logic
 ├── templates/
 │   ├── index.html  # Main UI layout
-├── app.py          # Flask backend logic
+├── ai_study_tool/
+│   ├── settings.py # Django project settings
+│   ├── urls.py     # URL routing
+│   ├── views.py    # Backend logic
+│   ├── models.py   # Database models
+├── manage.py       # Django CLI script
 ├── README.md       # Project documentation
 ```
 
 ## API Usage
-The app communicates with **Ollama API** to generate responses. The main API endpoint used:
+The app communicates with **Ollama API** to generate responses. The primary API endpoint used:
 ```plaintext
 http://localhost:11434/api/generate
 ```
@@ -82,22 +88,26 @@ http://localhost:11434/api/generate
 ## Academic Prompt Filtering
 The chatbot strictly answers academic-related queries. If a user enters a non-academic prompt, they receive an error message.
 
+## Future Plans
+This project is still in the early stages of development. Planned features include:
+1. **Expanding available resources**
+   - A dedicated resources tab will include books, lectures, and past papers (if targeting a specific academic field).
+2. **Full backend integration with user authentication**
+   - Users will be able to log in, save chat histories, and track their progress.
+3. **Student community feature**
+   - A forum-like environment where students can ask and answer questions.
+   - AI-powered content analysis for discussions.
+4. **Gamification system**
+   - Streaks, virtual rewards, and leaderboards to encourage participation.
+5. **React-based modern UI**
+   - Improved responsiveness and user experience.
+
 ## Contributing
-Feel free to contribute by submitting pull requests! To contribute:
+To contribute:
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature-name`)
 3. Commit changes (`git commit -m 'Add new feature'`)
 4. Push to the branch (`git push origin feature-name`)
 5. Open a pull request
-
-## Future Plans
-At it's current state, this project is far from a finished project. There are many plans for it's future, including but not limited to:
-1. Adding more resources
-    - There is a navbar tab dedicated to resources which is currently empty. In the future, we have plans to implement more resources related to academics such as popular books, lectures, and previous year papers. 
-2. Integrating a signup/login page (Back-end)
-    - Currently, the website has no proper back-end. In the future, we plan to integrate a login page, such that the user will be able to visit and continue their previous chats with the AI assistant.
-3. Integrating a social-media like environment
-    - We have plans to integrate a forum-site like environment in which students would be able to post their queries in an open-space, and other students will be able to answer those queries. 
-    - We also have plans for a game-like system in this environment, which will encourage the users to interact more frequently with other students.
 
 **Developed by Team Techverse of S2 CSE-C from Christ College of Engineering, Irinjalakuda.**

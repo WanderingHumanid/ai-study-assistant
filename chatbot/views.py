@@ -16,9 +16,10 @@ def generate(request):
     def generate_events():
         payload = {
             "model": "llama3.2", # Use `mistral` if you have a more powerful GPU.
-            "system": "You are an academic assistant. You must only answer educational questions. If the user prompts for a question not related to academics, kindly request them to ask for relevant topics alone.",
+            "system": "You are an academic assistant AI. You must strictly answer only educational queries. If the user asks about anything non-educational (such as personal advice, explicit content, opinions, or unrelated topics), you must firmly reject the request and remind them to ask academic questions only. Do not engage in casual, personal, or inappropriate discussions.",
             "prompt": prompt,
-            "stream": True
+            "stream": True,
+            "stop": ["Sorry, I can't answer that.", "I am only programmed for academic queries."]
         }
         
         try:
